@@ -1,44 +1,45 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingLayout from "./layouts/LandingLayout";
-import LandingPage from "./pages/LandingPage";
 import AuthLayout from "./layouts/AuthLayout";
 import AppLayout from "./layouts/AppLayout";
-import Features from "./pages/Functions";
-import LoginPage from "./pages/LoginPage";
-import SignupPage from "./pages/SignupPage";
 import Dashboard from "./pages/Dashboard";
-import Home from './components/Home';
-import Education from './components/Education';
-import Locator from './components/Locator';
-import Schedule from './components/Schedule';
-import Rewards from './components/Rewards';
-import Messages from './components/Messages';
-import Profile from './components/Profile';
+import Recycle from "./pages/Recycle";
+import Earnings from "./pages/Earnings";
+import Tasks from "./pages/Tasks";
+import Market from "./pages/Market";
+import Connect from "./pages/Connect";
+import Map from "./pages/Map";
+import Guides from "./pages/Guides";
+import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
 
 const App = () => (
   <Router>
     <Routes>
       {/* Landing page Layout */}
       <Route path="/" element={<LandingLayout />}>
-        <Route index element={<LandingPage />} />
-        <Route path="functions" element={<Features />} />
+        <Route index element={<Dashboard />} />
       </Route>
+
       {/* Signin and Signup page layout */}
       <Route element={<AuthLayout />}>
-        <Route path="login" element={<LoginPage />} />
-        <Route path="signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
       </Route>
+
       {/* Main application or dashboard layout */}
       <Route element={<AppLayout />}>
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="home" element={<Home />} />
-        <Route path="education" element={<Education />} />
-        <Route path="locator" element={<Locator />} />
-        <Route path="schedule" element={<Schedule />} />
-        <Route path="rewards" element={<Rewards />} />
-        <Route path="messages" element={<Messages />} />
-        <Route path="profile" element={<Profile />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/recycle" element={<Recycle />} />
+        <Route path="/earnings" element={<Earnings />} />
+        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/market" element={<Market />} />
+        <Route path="/connect" element={<Connect />} />
+        <Route path="/map" element={<Map />} />
+        <Route path="/guides" element={<Guides />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/settings" element={<Settings />} />
       </Route>
     </Routes>
   </Router>

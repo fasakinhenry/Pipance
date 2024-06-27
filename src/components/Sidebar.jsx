@@ -1,101 +1,186 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import {
+  FaChartLine,
+  FaRecycle,
+  FaMoneyBill,
+  FaTasks,
+  FaShoppingCart,
+  FaUserFriends,
+  FaMapMarkerAlt,
+  FaBook,
+  FaUserCog,
+  FaCog,
+} from 'react-icons/fa';
 
 const Sidebar = () => {
   return (
-    <div className='w-64 h-full bg-gray-800 text-white flex flex-col'>
-      <div className='p-4 text-2xl font-bold'>Pipance</div>
+    <div className='w-64 h-full bg-white text-gray-800 flex flex-col'>
+      <div className='p-4 text-2xl font-bold text-black'>Pipance</div>
       <nav className='flex-grow'>
-        <ul>
+        <ul className='space-y-0'>
           <li>
             <NavLink
-              to='/home'
+              to='/dashboard'
               className={({ isActive }) =>
-                isActive ? 'bg-primary text-white' : 'text-gray-400'
+                `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
+                  isActive
+                    ? 'bg-green-700 text-white hover:text-black'
+                    : 'text-gray-400'
+                }`
               }
-              activeClassName='bg-primary text-white'
-              className='block py-2.5 px-4'
             >
-              Home
+              <FaChartLine className='mr-2' />
+              Dashboard
             </NavLink>
           </li>
           <li>
             <NavLink
-              to='/education'
+              to='/recycle'
               className={({ isActive }) =>
-                isActive ? 'bg-primary text-white' : 'text-gray-400'
+                `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
+                  isActive
+                    ? 'bg-green-700 text-white hover:text-black'
+                    : 'text-gray-400'
+                }`
               }
-              activeClassName='bg-primary text-white'
-              className='block py-2.5 px-4'
             >
-              Education
+              <FaRecycle className='mr-2' />
+              Recycle
             </NavLink>
           </li>
           <li>
             <NavLink
-              to='/locator'
+              to='/earnings'
               className={({ isActive }) =>
-                isActive ? 'bg-primary text-white' : 'text-gray-400'
+                `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
+                  isActive
+                    ? 'bg-green-700 text-white hover:text-black'
+                    : 'text-gray-400'
+                }`
               }
-              activeClassName='bg-primary text-white'
-              className='block py-2.5 px-4'
             >
-              Locator
+              <FaMoneyBill className='mr-2' />
+              Earnings
             </NavLink>
           </li>
           <li>
             <NavLink
-              to='/schedule'
+              to='/tasks'
               className={({ isActive }) =>
-                isActive ? 'bg-primary text-white' : 'text-gray-400'
+                `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
+                  isActive
+                    ? 'bg-green-700 text-white hover:text-black'
+                    : 'text-gray-400'
+                }`
               }
-              activeClassName='bg-primary text-white'
-              className='block py-2.5 px-4'
             >
-              Schedule Pick-up
+              <FaTasks className='mr-2' />
+              Tasks
             </NavLink>
           </li>
           <li>
             <NavLink
-              to='/rewards'
+              to='/market'
               className={({ isActive }) =>
-                isActive ? 'bg-primary text-white' : 'text-gray-400'
+                `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
+                  isActive
+                    ? 'bg-green-700 text-white hover:text-black'
+                    : 'text-gray-400'
+                }`
               }
-              activeClassName='bg-primary text-white'
-              className='block py-2.5 px-4'
             >
-              Rewards
+              <FaShoppingCart className='mr-2' />
+              Market
             </NavLink>
           </li>
           <li>
             <NavLink
-              to='/messages'
+              to='/connect'
               className={({ isActive }) =>
-                isActive ? 'bg-primary text-white' : 'text-gray-400'
+                `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
+                  isActive
+                    ? 'bg-green-700 text-white hover:text-black'
+                    : 'text-gray-400'
+                }`
               }
-              activeClassName='bg-primary text-white'
-              className='block py-2.5 px-4'
             >
-              Messages
+              <FaUserFriends className='mr-2' />
+              Connect
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to='/map'
+              className={({ isActive }) =>
+                `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
+                  isActive
+                    ? 'bg-green-700 text-white hover:text-black'
+                    : 'text-gray-400'
+                }`
+              }
+            >
+              <FaMapMarkerAlt className='mr-2' />
+              Map
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to='/guides'
+              className={({ isActive }) =>
+                `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
+                  isActive
+                    ? 'bg-green-700 text-white hover:text-black'
+                    : 'text-gray-400'
+                }`
+              }
+            >
+              <FaBook className='mr-2' />
+              Guides
             </NavLink>
           </li>
           <li>
             <NavLink
               to='/profile'
               className={({ isActive }) =>
-                isActive ? 'bg-primary text-white' : 'text-gray-400'
+                `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
+                  isActive
+                    ? 'bg-green-700 text-white hover:text-black'
+                    : 'text-gray-400'
+                }`
               }
-              activeClassName='bg-primary text-white'
-              className='block py-2.5 px-4'
             >
+              <FaUserCog className='mr-2' />
               Profile
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to='/settings'
+              className={({ isActive }) =>
+                `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
+                  isActive
+                    ? 'bg-green-700 text-white hover:text-black'
+                    : 'text-gray-400'
+                }`
+              }
+            >
+              <FaCog className='mr-2' />
+              Settings
             </NavLink>
           </li>
         </ul>
       </nav>
-      <div className='p-4'>
-        <div className='text-gray-400'>User Profile</div>
-        <div className='text-white'>John Doe</div>
+      <div className='p-4 flex items-center'>
+        <img
+          src='https://via.placeholder.com/40'
+          alt='Profile'
+          className='w-10 h-10 rounded-full mr-3'
+        />
+        <div>
+          <div className='text-gray-800 font-semibold'>John Doe</div>
+          <div className='text-gray-400 text-sm'>john.doe@example.com</div>
+        </div>
       </div>
     </div>
   );
