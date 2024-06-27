@@ -11,6 +11,7 @@ import {
   FaBook,
   FaUserCog,
   FaCog,
+  FaCalendarAlt, // New icon for Schedule
 } from 'react-icons/fa';
 
 const Sidebar = () => {
@@ -26,7 +27,7 @@ const Sidebar = () => {
                 `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                   isActive
                     ? 'bg-green-700 text-white hover:text-black'
-                    : 'text-gray-400'
+                    : 'text-black'
                 }`
               }
             >
@@ -41,7 +42,7 @@ const Sidebar = () => {
                 `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                   isActive
                     ? 'bg-green-700 text-white hover:text-black'
-                    : 'text-gray-400'
+                    : 'text-black'
                 }`
               }
             >
@@ -56,7 +57,7 @@ const Sidebar = () => {
                 `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                   isActive
                     ? 'bg-green-700 text-white hover:text-black'
-                    : 'text-gray-400'
+                    : 'text-black'
                 }`
               }
             >
@@ -71,7 +72,7 @@ const Sidebar = () => {
                 `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                   isActive
                     ? 'bg-green-700 text-white hover:text-black'
-                    : 'text-gray-400'
+                    : 'text-black'
                 }`
               }
             >
@@ -86,7 +87,7 @@ const Sidebar = () => {
                 `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                   isActive
                     ? 'bg-green-700 text-white hover:text-black'
-                    : 'text-gray-400'
+                    : 'text-black'
                 }`
               }
             >
@@ -101,7 +102,7 @@ const Sidebar = () => {
                 `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                   isActive
                     ? 'bg-green-700 text-white hover:text-black'
-                    : 'text-gray-400'
+                    : 'text-black'
                 }`
               }
             >
@@ -116,7 +117,7 @@ const Sidebar = () => {
                 `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                   isActive
                     ? 'bg-green-700 text-white hover:text-black'
-                    : 'text-gray-400'
+                    : 'text-black'
                 }`
               }
             >
@@ -131,7 +132,7 @@ const Sidebar = () => {
                 `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                   isActive
                     ? 'bg-green-700 text-white hover:text-black'
-                    : 'text-gray-400'
+                    : 'text-black'
                 }`
               }
             >
@@ -141,12 +142,27 @@ const Sidebar = () => {
           </li>
           <li>
             <NavLink
+              to='/schedule'
+              className={({ isActive }) =>
+                `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
+                  isActive
+                    ? 'bg-green-700 text-white hover:text-black'
+                    : 'text-black'
+                }`
+              }
+            >
+              <FaCalendarAlt className='mr-2' />
+              Schedule
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to='/profile'
               className={({ isActive }) =>
                 `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                   isActive
                     ? 'bg-green-700 text-white hover:text-black'
-                    : 'text-gray-400'
+                    : 'text-black'
                 }`
               }
             >
@@ -161,7 +177,7 @@ const Sidebar = () => {
                 `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                   isActive
                     ? 'bg-green-700 text-white hover:text-black'
-                    : 'text-gray-400'
+                    : 'text-black'
                 }`
               }
             >

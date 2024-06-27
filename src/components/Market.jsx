@@ -1,14 +1,14 @@
 
 import React from "react";
 
-const Rewards = () => {
+const Market = () => {
 
     return (
         <div>
-            <h1>Rewards works!</h1>
+            <h1>Market works!</h1>
         </div>
     );  
 }
 
-export default Rewards;
+export default Market;
     

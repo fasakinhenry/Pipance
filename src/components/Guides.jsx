@@ -1,14 +1,14 @@
 
 import React from "react";
 
-const Locator = () => {
+const Guides = () => {
 
     return (
         <div>
-            <h1>Locator works!</h1>
+            <h1>Guides works!</h1>
         </div>
     );  
 }
 
-export default Locator;
+export default Guides;
     

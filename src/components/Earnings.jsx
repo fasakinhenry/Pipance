@@ -1,14 +1,14 @@
 
 import React from "react";
 
-const Messages = () => {
+const Earnings = () => {
 
     return (
         <div>
-            <h1>Messages works!</h1>
+            <h1>Earnings works!</h1>
         </div>
     );  
 }
 
-export default Messages;
+export default Earnings;
     
