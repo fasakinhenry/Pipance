@@ -92,7 +92,7 @@ const SignupPage = () => {
             type='submit'
             className='w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:bg-blue-700'
           >
-            Sign in
+            Sign Up
           </button>
           <p className='mt-4 text-sm text-gray-600 text-center'>
             By creating an account, you agree to the Terms of Service and
