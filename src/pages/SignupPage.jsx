@@ -100,7 +100,7 @@ const SignupPage = () => {
           </p>
           <p className='text-sm text-gray-600 text-center'>
             Already have an account?{' '}
-            <a href='login' className='text-blue-500 hover:underline'>
+            <a href='/login' className='text-blue-500 hover:underline'>
               Sign In
             </a>
           </p>
