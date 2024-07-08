@@ -1,47 +1,65 @@
-import { PrismaClient } from '@prisma/client';
-import { NextApiResponse } from 'next';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import { PrismaClient } from "@prisma/client";
+import { NextApiResponse } from "next";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import { NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
 
 export async function POST(req: Request, res: NextApiResponse) {
-    if (req.method === 'POST') {
-        try {
-            const { email, password } = await req.json();
-            
-            // Validate input
-            if (!email || !password) {
-                return res.status(400).json({ message: 'Missing email or password' });
-            }
+  if (req.method === "POST") {
+    try {
+      const { email, password } = await req.json();
 
-            // Check if user exists
-            const user = await prisma.user.findUnique({
-                where: { email },
-            });
-            if (!user) {
-                return res.status(401).json({ message: 'Invalid email or password' });
-            }
+      // Validate input
+      if (!email || !password) {
+        return NextResponse.json(
+          { message: "Missing email or password" },
+          { status: 400 }
+        );
+      }
 
-            // Compare passwords
-            const isPasswordValid = await bcrypt.compare(password, user.password);
-            if (!isPasswordValid) {
-                return res.status(401).json({ message: 'Invalid email or password' });
-            }
+      // Check if user exists
+      const user = await prisma.user.findUnique({
+        where: { email },
+      });
+      if (!user) {
+        return NextResponse.json(
+          { message: "Invalid email " },
+          { status: 400 }
+        );
+      }
 
-            // Generate JWT token
-            const token = jwt.sign(
-                { userId: user.id, email: user.email },
-                process.env.JWT_SECRET!,
-                { expiresIn: '1h' }
-            );
+      // Compare passwords
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+      if (!isPasswordValid) {
+        return NextResponse.json(
+          { message: "Incorrect password " },
+          { status: 400 }
+        );
+      }
 
-            return res.status(200).json({ message: 'Login successful', token });
-        } catch (error) {
-            console.error('❌ Error:');
-            return res.status(500).json({ message: 'Internal server error' });
-        }
-    } else {
-        return res.status(405).json({ message: 'Invalid request method' });
+      // Generate JWT token
+      const token = jwt.sign(
+        { userId: user.id, email: user.email },
+        process.env.JWT_SECRET!,
+        { expiresIn: "1h" }
+      );
+      return NextResponse.json(
+        { message: "Login successful", token },
+        { status: 400 }
+      );
+    } catch (error) {
+      console.error("❌ Error:");
+      return NextResponse.json(
+        { message: "Internal server error" },
+        { status: 500 }
+      );
     }
+  } else {
+    return NextResponse.json(
+      { message: "Invalid request method" },
+      { status: 405 }
+    );
+  }
 }

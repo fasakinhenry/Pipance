@@ -1,6 +1,7 @@
 import { db } from '@/lib/db';
 import { NextApiResponse } from 'next';
 import bcrypt from 'bcryptjs';
+import { NextResponse } from 'next/server';
 
 export async function POST(req: Request, res: NextApiResponse) {
     if (req.method === 'POST') {
@@ -9,7 +10,7 @@ export async function POST(req: Request, res: NextApiResponse) {
             
             // Validate input
             if (!fullname || !email || !username || !password) {
-                return res.status(400).json({ message: 'Missing required fields' });  
+                return NextResponse.json({ message: 'Missing required Fields'}, {status: 500})  
             }
 
             // Check if user already exists
