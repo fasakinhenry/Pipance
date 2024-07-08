@@ -26,7 +26,7 @@ const App = () => (
     <Routes>
       {/* Landing page Layout */}
       <Route path='/' element={<LandingLayout />}>
-        <Route index element={<Dashboard />} />
+        <Route index element={<LandingPage />} />
       </Route>
 
       {/* Signin and Signup page layout */}

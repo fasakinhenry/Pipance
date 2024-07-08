@@ -7,7 +7,6 @@ import {
   FaTasks,
   FaShoppingCart,
   FaUserFriends,
-  FaMapMarkerAlt,
   FaBook,
   FaUserCog,
   FaCog,
@@ -23,21 +22,32 @@ const Sidebar = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div className='flex flex-col h-full md:h-screen md:flex-row'>
       {/* Mobile Hamburger Menu */}
       <div className='md:hidden flex justify-between items-center p-4 bg-white text-gray-800'>
         <div className='text-2xl font-bold text-black'>Pipance</div>
-        <button onClick={handleToggle} className='text-2xl'>
-          {isOpen ? <FaTimes /> : <FaBars />}
+        <button
+          onClick={handleToggle}
+          className='p-2 rounded bg-color-primary text-white'
+        >
+          {isOpen ? (
+            <FaTimes className='text-2xl' />
+          ) : (
+            <FaBars className='text-2xl' />
+          )}
         </button>
       </div>
 
-      {/* Sidebar for larger screens */}
+      {/* Sidebar */}
       <div
-        className={`w-64 h-full bg-white text-gray-800 flex flex-col fixed md:relative overflow-y-auto ${
-          isOpen ? 'block' : 'hidden'
-        } md:block`}
+        className={`fixed inset-y-0 left-0 w-64 bg-white text-gray-800 flex flex-col transform ${
+          isOpen ? 'translate-x-0' : '-translate-x-full'
+        } transition-transform duration-300 ease-in-out md:relative md:translate-x-0`}
       >
         <div className='p-4 text-2xl font-bold text-black hidden md:block'>
           Pipance
@@ -47,6 +57,7 @@ const Sidebar = () => {
             <li>
               <NavLink
                 to='/dashboard'
+                onClick={handleClose}
                 className={({ isActive }) =>
                   `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                     isActive
@@ -62,6 +73,7 @@ const Sidebar = () => {
             <li>
               <NavLink
                 to='/recycle'
+                onClick={handleClose}
                 className={({ isActive }) =>
                   `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                     isActive
@@ -77,6 +89,7 @@ const Sidebar = () => {
             <li>
               <NavLink
                 to='/earnings'
+                onClick={handleClose}
                 className={({ isActive }) =>
                   `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                     isActive
@@ -92,6 +105,7 @@ const Sidebar = () => {
             <li>
               <NavLink
                 to='/tasks'
+                onClick={handleClose}
                 className={({ isActive }) =>
                   `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                     isActive
@@ -107,6 +121,7 @@ const Sidebar = () => {
             <li>
               <NavLink
                 to='/market'
+                onClick={handleClose}
                 className={({ isActive }) =>
                   `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                     isActive
@@ -122,6 +137,7 @@ const Sidebar = () => {
             <li>
               <NavLink
                 to='/connect'
+                onClick={handleClose}
                 className={({ isActive }) =>
                   `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                     isActive
@@ -136,22 +152,8 @@ const Sidebar = () => {
             </li>
             <li>
               <NavLink
-                to='/map'
-                className={({ isActive }) =>
-                  `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
-                    isActive
-                      ? 'bg-color-primary text-white hover:text-black'
-                      : 'text-black'
-                  }`
-                }
-              >
-                <FaMapMarkerAlt className='mr-2' />
-                Map
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
                 to='/guides'
+                onClick={handleClose}
                 className={({ isActive }) =>
                   `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                     isActive
@@ -167,6 +169,7 @@ const Sidebar = () => {
             <li>
               <NavLink
                 to='/schedule'
+                onClick={handleClose}
                 className={({ isActive }) =>
                   `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                     isActive
@@ -182,6 +185,7 @@ const Sidebar = () => {
             <li>
               <NavLink
                 to='/profile'
+                onClick={handleClose}
                 className={({ isActive }) =>
                   `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                     isActive
@@ -197,6 +201,7 @@ const Sidebar = () => {
             <li>
               <NavLink
                 to='/settings'
+                onClick={handleClose}
                 className={({ isActive }) =>
                   `flex items-center block py-2.5 px-6 hover:bg-gray-100 ${
                     isActive
@@ -224,66 +229,13 @@ const Sidebar = () => {
         </div>
       </div>
 
-      {/* Bottom Navigation for mobile */}
-      <div className='fixed bottom-0 left-0 right-0 md:hidden bg-white shadow-md'>
-        <div className='flex justify-around p-2'>
-          <NavLink
-            to='/dashboard'
-            className={({ isActive }) =>
-              `flex flex-col items-center justify-center py-2 ${
-                isActive ? 'text-green-700' : 'text-gray-800'
-              }`
-            }
-          >
-            <FaChartLine className='text-2xl' />
-            <span className='text-xs'>Dashboard</span>
-          </NavLink>
-          <NavLink
-            to='/recycle'
-            className={({ isActive }) =>
-              `flex flex-col items-center justify-center py-2 ${
-                isActive ? 'text-green-700' : 'text-gray-800'
-              }`
-            }
-          >
-            <FaRecycle className='text-2xl' />
-            <span className='text-xs'>Recycle</span>
-          </NavLink>
-          <NavLink
-            to='/market'
-            className={({ isActive }) =>
-              `flex flex-col items-center justify-center py-2 ${
-                isActive ? 'text-green-700' : 'text-gray-800'
-              }`
-            }
-          >
-            <FaShoppingCart className='text-2xl' />
-            <span className='text-xs'>Market</span>
-          </NavLink>
-          <NavLink
-            to='/earnings'
-            className={({ isActive }) =>
-              `flex flex-col items-center justify-center py-2 ${
-                isActive ? 'text-green-700' : 'text-gray-800'
-              }`
-            }
-          >
-            <FaMoneyBill className='text-2xl' />
-            <span className='text-xs'>Earnings</span>
-          </NavLink>
-          <NavLink
-            to='/map'
-            className={({ isActive }) =>
-              `flex flex-col items-center justify-center py-2 ${
-                isActive ? 'text-green-700' : 'text-gray-800'
-              }`
-            }
-          >
-            <FaMapMarkerAlt className='text-2xl' />
-            <span className='text-xs'>Map</span>
-          </NavLink>
-        </div>
-      </div>
+      {/* Overlay for mobile screens */}
+      {isOpen && (
+        <div
+          className='fixed inset-0 bg-black opacity-50 md:hidden z-10'
+          onClick={handleClose}
+        ></div>
+      )}
     </div>
   );
 };
