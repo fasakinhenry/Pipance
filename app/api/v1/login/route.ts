@@ -47,7 +47,7 @@ export async function POST(req: Request, res: NextApiResponse) {
       );
       return NextResponse.json(
         { message: "Login successful", token },
-        { status: 400 }
+        { status: 200 }
       );
     } catch (error) {
       console.error("❌ Error:");
